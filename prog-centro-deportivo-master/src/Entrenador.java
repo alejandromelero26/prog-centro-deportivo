@@ -14,20 +14,20 @@ public class Entrenador {
     private int id;
     private String nombre;
     private String especialidad;
-    private int añosExperiencia;
+    private int aniosExperiencia;
 
     /**
      * Constructor completo para crear un entrenador.
      * @param id Identificador único.
      * @param nombre Nombre completo.
      * @param especialidad Área de especialización (Yoga, Musculación, etc.).
-     * @param añosExperiencia Tiempo de experiencia en el sector.
+     * @param aniosExperiencia Tiempo de experiencia en el sector.
      */
-    public Entrenador(int id, String nombre, String especialidad, int añosExperiencia) {
+    public Entrenador(int id, String nombre, String especialidad, int aniosExperiencia) {
         this.id = id;
         this.nombre = nombre;
         this.especialidad = especialidad;
-        this.añosExperiencia = añosExperiencia;
+        this.aniosExperiencia = aniosExperiencia;
     }
 
     /** @return El ID único del entrenador. */
@@ -40,11 +40,11 @@ public class Entrenador {
     public String getEspecialidad() { return especialidad; }
 
     /** @return Los años de experiencia. */
-    public int getAñosExperiencia() { return añosExperiencia; }
+    public int getAñosExperiencia() { return aniosExperiencia; }
 
     @Override
     public String toString() {
-        return String.format("[ID: %d] %s - Especialidad: %s (%d años exp.)",
-                id, nombre, especialidad, añosExperiencia);
+        return String.format("[id: %d] %s - Especialidad: %s (%d años exp.)",
+                id, nombre, especialidad, aniosExperiencia);
     }
 }
