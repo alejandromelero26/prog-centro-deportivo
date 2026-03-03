@@ -18,8 +18,71 @@
  * Esta clase actúa como contenedor y gestiona la lógica de almacenamiento
  * y acceso a los objetos {@link Entrenador}.
  *
- * @author Luis García Sánchez
+ * @author Alejandro Melero
  * @version 1.0
  */
 public class CentroDeportivo {
+    private Entrenador[] entrenadores;
+    private final int NUM_MAX_ENTRENADORES;
+
+    public CentroDeportivo(int cantidad_maxima_entrenadores) {
+        NUM_MAX_ENTRENADORES = cantidad_maxima_entrenadores;
+        entrenadores = new Entrenador[NUM_MAX_ENTRENADORES];
+    }
+
+    /**
+     * Busca el primer entrenador encontrado con el id recibido
+     * @param id
+     * @return
+     */
+    public Entrenador findEntrenador(int id) {
+        boolean seguirBuscando = true;
+        Entrenador entrenadorEncontrado = null;
+
+        for (int i = 0; i < NUM_MAX_ENTRENADORES && seguirBuscando; i++) {
+            if (entrenadores != null && entrenadores[i].getId() == id) {
+                seguirBuscando = false;
+                entrenadorEncontrado = entrenadores[i];
+            }
+        }
+        return entrenadorEncontrado;
+    }
+
+    /**
+     * Busca la primera posicion libre
+     * @return el indice de la primera posicion libre
+     */
+    private int buscarPrimerHuecoLibre(){
+        int posicionLibre = -1;
+        boolean seguirBuscando = true;
+
+        for (int i = 0; i < NUM_MAX_ENTRENADORES && seguirBuscando; i++) {
+            if(entrenadores[i] == null){
+                posicionLibre = i;
+                seguirBuscando = false;
+            }
+        }
+        return posicionLibre;
+    }
+
+    /**
+     * Anade un entrenador a la clase centro deportivo
+     * @param entrenador
+     * @return si el entrenador se ha anadido correctamente o si ya existia
+     */
+    public boolean addEntrenador(Entrenador entrenador){
+        boolean entrenadorAnadido = false;
+        int posicion;
+
+        if (findEntrenador(entrenador.getId()) == null) {
+            posicion = buscarPrimerHuecoLibre();
+            if (posicion >= 0) {
+                entrenadores[posicion] = entrenador;
+                entrenadorAnadido = true;
+            }
+        }
+        return entrenadorAnadido;
+    }
+
+
 }
