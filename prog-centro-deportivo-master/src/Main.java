@@ -8,16 +8,18 @@ public class Main {
         Entrenador entrenador2 = new Entrenador(2, "Luis", "Piernas", 3);
         Entrenador entrenador3 = new Entrenador(1, "Carlos", "Brazos", 1);
 
-        System.out.println(centroDeportivo.buscarEntrenador(1) ) ;  // null
 
-        System.out.println(centroDeportivo.registrarEntrenador(entrenador1)); // true
-        System.out.println(centroDeportivo.registrarEntrenador(entrenador2));
-        System.out.println(centroDeportivo.registrarEntrenador(entrenador3));// true
+        System.out.println("Registro: " + centroDeportivo.registrarEntrenador(entrenador1));
+        System.out.println("Registro: " + centroDeportivo.registrarEntrenador(entrenador2));
+        System.out.println("Registro: " + centroDeportivo.registrarEntrenador(entrenador3));
 
         System.out.println(centroDeportivo.mostrarEntrenadores());
 
+        System.out.println("Numero de entrenadores: " + centroDeportivo.contarEntrenadores());
 
 
+        System.out.println("Buscamos entrenador existente: " + centroDeportivo.buscarEntrenador(1) ) ;
+        System.out.println("Buscamos entrenador inexistente: " + centroDeportivo.buscarEntrenador(4) ) ;
 
     }
 }
